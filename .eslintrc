@@ -1,0 +1,17 @@
+{
+  "parser": "babel-eslint",
+  "plugins": ["react"],
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "rules": {
+    "indent": [2, "tab"]
+  },
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true
+  }
+}
