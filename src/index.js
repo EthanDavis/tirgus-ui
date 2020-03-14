@@ -1,6 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './style/main.less';
+/* eslint-disable indent */
+import React from "react";
+import ReactDOM from "react-dom";
+import "./style/main.less";
 
 class Welcome extends React.Component {
   render() {
@@ -8,4 +9,4 @@ class Welcome extends React.Component {
   }
 }
 
-ReactDOM.render(<Welcome />, document.getElementById('root'));
+ReactDOM.render(<Welcome />, document.getElementById("root"));
