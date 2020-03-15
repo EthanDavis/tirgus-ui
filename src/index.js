@@ -2,11 +2,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./style/main.less";
+import NavBar from "./components/nav-bar";
+import "bootstrap/dist/css/bootstrap.min.css"
 
-class Welcome extends React.Component {
-  render() {
-    return <h1>hello</h1>;
-  }
-}
-
-ReactDOM.render(<Welcome />, document.getElementById("root"));
+ReactDOM.render(<NavBar />, document.getElementById("root"));
