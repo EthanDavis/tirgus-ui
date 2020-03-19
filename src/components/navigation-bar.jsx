@@ -1,17 +1,14 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from 'react';
+import React from 'react';
 
-class NavigationBar extends Component {
-	state = {}
-	render() {
-		return (
-			<nav className="navbar navbar-light bg-light">
-				<a className="navbar-brand" href="#">Navbar</a>
+const NavigationBar = ({ totalCounters }) => {
+	return (
+		<nav className="navbar navbar-light bg-light">
+			<a className="navbar-brand" href="#">Navbar</a>
 					NavigationBar{" "}
-				<span className="badge badge-pill badge-secondary">{this.props.totalCounters}</span>
-			</nav>
-		);
-	}
+			<span className="badge badge-pill badge-secondary">{totalCounters}</span>
+		</nav>
+	);
 }
 
 export default NavigationBar;
