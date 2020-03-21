@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NavigationBar from "./components/navigation/navigation-bar";
 import Counters from "./components/counters";
-import InventoryFeed from "./components/inventory-feed/iventory-feed"
+import InventoryFeed from "./components/inventory-feed/inventory-feed"
 class App extends Component {
 	state = {
 		counters: [

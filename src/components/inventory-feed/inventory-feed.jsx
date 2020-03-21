@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
-import InventoryItem from "./inventory-item";
+import InventoryItem from "../inventory-item/inventory-item";
 
 
 class InventoryFeed extends Component {
