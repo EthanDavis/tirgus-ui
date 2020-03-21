@@ -7,7 +7,7 @@
 		"test": "test"
 	},
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
+		"test": "jest",
 		"start": "webpack-dev-server --mode development ",
 		"format": "prettier --write \"src/**/*.js\"",
 		"eslint-fix": "eslint --fix \"src/**/*.js\"",

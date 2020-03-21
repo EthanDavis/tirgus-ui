@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NavigationBar from "./components/navigation/navigation-bar";
 import Counters from "./components/counters";
+import InventoryFeed from "./components/inventory-feed/iventory-feed"
 class App extends Component {
 	state = {
 		counters: [
@@ -39,12 +40,7 @@ class App extends Component {
 			<React.Fragment>
 				<NavigationBar totalCounters={this.state.counters.filter(c => c.value > 0).length} />
 				<main className="container">
-					<Counters
-						counters={this.state.counters}
-						onReset={this.handleReset}
-						onIncrement={this.handleIncrement}
-						onDelete={this.handleDelete}
-					/>
+					<InventoryFeed />
 				</main>
 			</React.Fragment>
 		);
