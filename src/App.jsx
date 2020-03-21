@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NavigationBar from "./components/navigation-bar";
+import NavigationBar from "./components/navigation/navigation-bar";
 import Counters from "./components/counters";
 class App extends Component {
 	state = {

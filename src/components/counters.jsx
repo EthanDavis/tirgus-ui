@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
-import NavigationElement from "./navigation-element";
+import NavigationElement from "./navigation/navigation-element";
 import Counter from "./counter";
 class Counters extends Component {
 
