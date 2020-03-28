@@ -8,13 +8,15 @@ class InventoryItem extends Component {
 		const { item } = this.props;
 
 		return (
-			<div className="col-md">
-				<div className="card inventory-card" >
-					<img className="card-img-top inventory-card-image" src={item.image} alt="Card image cap" />
-					<div className="card-body">
-						<h5 className="card-title">{item.name}</h5>
-						<p className="card-text">{item.description}</p>
-						<a href="#" className="btn btn-primary" onClick={() => { this.props.addToChart(item) }}>Add To Chart</a>
+			<div className="row p-4">
+				<div className="col-md-12">
+					<div className="card inventory-card" >
+						<img className="card-img-top inventory-card-image" src={item.image} alt="Card image cap" />
+						<div className="card-body">
+							<h5 className="card-title">{item.name}</h5>
+							<p className="card-text">{item.description}</p>
+							<a href="#" className="btn btn-primary" onClick={() => { this.props.addToChart(item) }}>Add To Chart</a>
+						</div>
 					</div>
 				</div>
 			</div>

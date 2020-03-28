@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import InventoryItem from "../inventory-item/inventory-item";
-
+import "./inventory-feed.less";
 
 class InventoryFeed extends Component {
 
@@ -10,16 +10,16 @@ class InventoryFeed extends Component {
 		const { inventory, addToChart } = this.props
 
 		return (
-			<div className="container">
-				<div className="row">
-					{
-						inventory.items.map(item =>
-							<InventoryItem key={item.id}
-								addToChart={addToChart}
-								item={item} />
-						)}
-				</div>
+
+			<div className="row h-100 pt-4 justify-content-center align-items-center">
+				{
+					inventory.items.map(item =>
+						<InventoryItem className="" key={item.id}
+							addToChart={addToChart}
+							item={item} />
+					)}
 			</div>
+
 		);
 	}
 }
