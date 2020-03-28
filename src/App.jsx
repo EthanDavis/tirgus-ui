@@ -2,15 +2,9 @@ import React, { Component } from 'react';
 import NavigationBar from "./components/navigation/navigation-bar";
 import Counters from "./components/counters";
 import InventoryFeed from "./components/inventory-feed/inventory-feed"
+
+const GlobalStore = React.createContext();
 class App extends Component {
-	state = {
-		counters: [
-			{ id: 1, value: 4 },
-			{ id: 2, value: 0 },
-			{ id: 3, value: 0 },
-			{ id: 4, value: 0 }
-		]
-	};
 
 	handleReset = () => {
 		const counters = this.state.counters.map((counter) => {
