@@ -40,6 +40,35 @@ class App extends Component {
 					id: 6,
 					name: "Test Item 6",
 					image: "https://picsum.photos/id/600/200/300"
+				}, {
+					id: 1,
+					name: "Test Item 1",
+					image: "https://picsum.photos/id/100/200/300"
+				},
+				{
+					id: 2,
+					name: "Test Item 2",
+					image: "https://picsum.photos/id/200/200/300"
+				},
+				{
+					id: 3,
+					name: "Test Item 3",
+					image: "https://picsum.photos/id/300/200/300"
+				},
+				{
+					id: 4,
+					name: "Test Item 4",
+					image: "https://picsum.photos/id/400/200/300"
+				},
+				{
+					id: 5,
+					name: "Test Item 5",
+					image: "https://picsum.photos/id/500/200/300"
+				},
+				{
+					id: 6,
+					name: "Test Item 6",
+					image: "https://picsum.photos/id/600/200/300"
 				},
 			]
 		}

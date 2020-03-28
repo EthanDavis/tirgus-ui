@@ -7,13 +7,13 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
 const NavigationBar = ({ totalItemsInChart }) => {
 	return (
-		<nav className="navbar navbar-light navigation-bar">
-			<Link className="navbar-brand" to="/">Tirgus-UI</Link>
+		<nav className="navbar navbar-light navigation-bar sticky-top">
+			<Link className="navbar-brand" to="/">AH Butique</Link>
 			<NavLink className="nav-item nav-link" to="/chart">
-				<span className="badge badge-pill badge-secondary">
-					<FontAwesomeIcon icon={faShoppingCart} />
+				<div className="badge badge-pill badge-secondary">
+					<FontAwesomeIcon icon={faShoppingCart} size="lg" />
 					{totalItemsInChart}
-				</span>
+				</div>
 			</NavLink>
 
 		</nav>
