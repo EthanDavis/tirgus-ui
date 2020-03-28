@@ -14,7 +14,7 @@ class InventoryItem extends Component {
 					<div className="card-body">
 						<h5 className="card-title">{item.name}</h5>
 						<p className="card-text">{item.description}</p>
-						<a href="#" className="btn btn-primary" onClick={(item) => { this.props.addToChart(item) }}>Add To Chart</a>
+						<a href="#" className="btn btn-primary" onClick={() => { this.props.addToChart(item) }}>Add To Chart</a>
 					</div>
 				</div>
 			</div>

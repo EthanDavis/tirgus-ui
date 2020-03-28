@@ -13,22 +13,22 @@ class App extends Component {
 				{
 					id: 1,
 					name: "Test Item 1",
-					image: "https://picsum.photos/id/1/200/300"
+					image: "https://picsum.photos/id/100/200/300"
 				},
 				{
 					id: 2,
 					name: "Test Item 2",
-					image: "https://picsum.photos/id/1/200/300"
+					image: "https://picsum.photos/id/200/200/300"
 				},
 				{
 					id: 3,
 					name: "Test Item 3",
-					image: "https://picsum.photos/id/1/200/300"
+					image: "https://picsum.photos/id/300/200/300"
 				},
 				{
 					id: 4,
 					name: "Test Item 4",
-					image: "https://picsum.photos/id/1/200/300"
+					image: "https://picsum.photos/id/400/200/300"
 				},
 			]
 		}
@@ -58,8 +58,7 @@ class App extends Component {
 	addToChart = (inventoryItem) => {
 		console.log("Adding", inventoryItem);
 		const chart = [...this.state.chart]
-		const index = chart.indexOf(inventoryItem)
-		chart[index] = { ...inventoryItem }
+		chart.push(inventoryItem)
 
 		this.setState({ chart })
 	};
