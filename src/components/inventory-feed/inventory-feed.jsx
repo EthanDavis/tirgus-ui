@@ -14,7 +14,7 @@ class InventoryFeed extends Component {
 			<div className="row h-100 pt-4 justify-content-center align-items-center">
 				{
 					inventory.items.map(item =>
-						<InventoryItem className="" key={item.id}
+						<InventoryItem  key={item.id}
 							addToChart={addToChart}
 							item={item} />
 					)}

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import NavigationBar from "./components/navigation/navigation-bar";
-import InventoryFeed from "./components/inventory-feed/inventory-feed"
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
+import InventoryFeed from "./components/inventory-feed/inventory-feed";
 import ItemsChart from "./components/items-chart/items-chart";
+import NavigationBar from "./components/navigation/navigation-bar";
 
 const GlobalStore = React.createContext();
 class App extends Component {
@@ -63,14 +63,16 @@ class App extends Component {
 		return (
 			<React.Fragment>
 				<NavigationBar totalItemsInChart={this.state.chart.length} />
-				<div>
-					<Switch>
-						<Route path="/chart" component={ItemsChart} />
-					</Switch>
-				</div>
 				<main className="container-fluid">
-					<InventoryFeed inventory={this.state.inventory}
-						addToChart={this.addToChart} />
+					<Switch>
+						<Route path="/feed" render={() =>
+							<InventoryFeed inventory={this.state.inventory} addToChart={this.addToChart} {...this.props} />
+						} />
+						<Route path="/chart" render={() =>
+							<ItemsChart itemsInChart={this.state.chart} {...this.props} />
+						} />
+						<Redirect from="" to="/feed" />
+					</Switch>
 				</main>
 			</React.Fragment>
 		);
