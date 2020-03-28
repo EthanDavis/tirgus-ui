@@ -75,9 +75,9 @@ class App extends Component {
 	};
 
 
-	handleDelete = (counterId) => {
-		const counters = this.state.counters.filter(counter => counter.id !== counterId);
-		this.setState({ counters });
+	deleteFromChart = (itemId) => {
+		const items = this.state.chart.filter(item => item.id !== itemId);
+		this.setState({ chart: items });
 	};
 
 
@@ -98,7 +98,7 @@ class App extends Component {
 							<InventoryFeed inventory={this.state.inventory} addToChart={this.addToChart} {...this.props} />
 						} />
 						<Route path="/chart" render={() =>
-							<ItemsChart itemsInChart={this.state.chart} {...this.props} />
+							<ItemsChart itemsInChart={this.state.chart} deleteFromChart={this.deleteFromChart} {...this.props} />
 						} />
 						<Redirect from="" to="/feed" />
 					</Switch>
