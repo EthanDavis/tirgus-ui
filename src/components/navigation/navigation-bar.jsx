@@ -9,6 +9,9 @@ const NavigationBar = ({ totalItemsInChart }) => {
 	return (
 		<nav className="navbar navbar-light navigation-bar sticky-top">
 			<Link className="navbar-brand" to="/">AH Butique</Link>
+			<NavLink className="nav-item nav-link" to="/about">
+				About
+			</NavLink>
 			<NavLink className="nav-item nav-link" to="/chart">
 				<div className="badge badge-pill badge-secondary">
 					<FontAwesomeIcon icon={faShoppingCart} size="lg" />

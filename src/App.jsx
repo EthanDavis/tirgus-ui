@@ -3,6 +3,7 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import InventoryFeed from "./components/inventory-feed/inventory-feed";
 import ItemsChart from "./components/items-chart/items-chart";
 import NavigationBar from "./components/navigation/navigation-bar";
+import About from "./components/about/about"
 
 const GlobalStore = React.createContext();
 class App extends Component {
@@ -61,7 +62,7 @@ class App extends Component {
 					image: "https://picsum.photos/id/400/200/300"
 				},
 				{
-					id:11,
+					id: 11,
 					name: "Test Item 11",
 					image: "https://picsum.photos/id/500/200/300"
 				},
@@ -94,6 +95,7 @@ class App extends Component {
 				<NavigationBar totalItemsInChart={this.state.chart.length} />
 				<main className="container-fluid">
 					<Switch>
+						<Route path="/about" render={() => <About />} />
 						<Route path="/feed" render={() =>
 							<InventoryFeed inventory={this.state.inventory} addToChart={this.addToChart} {...this.props} />
 						} />
