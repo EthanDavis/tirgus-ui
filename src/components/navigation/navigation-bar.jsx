@@ -13,9 +13,9 @@ const NavigationBar = ({ totalItemsInChart }) => {
 				About
 			</NavLink>
 			<NavLink className="nav-item nav-link" to="/chart">
-				<div className="badge badge-pill badge-secondary">
+				<div>
 					<FontAwesomeIcon icon={faShoppingCart} size="lg" />
-					{totalItemsInChart}
+					<span className="navbar-chart-count">{totalItemsInChart}</span>
 				</div>
 			</NavLink>
 
