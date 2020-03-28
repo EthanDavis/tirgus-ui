@@ -8,8 +8,7 @@ class ItemsChart extends Component {
 	render() {
 		const { itemsInChart } = this.props
 		return (
-			<div className="row">
-				Shopping Chart
+			<div className="row justify-content-center align-items-center">
 				{
 					itemsInChart.map(item =>
 						<InventoryItem key={item.id}
