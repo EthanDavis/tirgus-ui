@@ -2,12 +2,12 @@
 import React from 'react';
 import './navigation-bar.less'
 
-const NavigationBar = ({ totalCounters }) => {
+const NavigationBar = ({ totalItemsInChart }) => {
 	return (
 		<nav className="navbar navbar-light navigation-bar">
 			<a className="navbar-brand" href="#">Navbar</a>
 					NavigationBar{" "}
-			<span className="badge badge-pill badge-secondary">{totalCounters}</span>
+			<span className="badge badge-pill badge-secondary">{totalItemsInChart}</span>
 		</nav>
 	);
 }
