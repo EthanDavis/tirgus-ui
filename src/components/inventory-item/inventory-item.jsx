@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import './inventory-item.less'
+import Button from "../button/button";
 
 class InventoryItem extends Component {
 	state = {}
@@ -15,7 +16,10 @@ class InventoryItem extends Component {
 						<div className="card-body">
 							<h5 className="card-title">{item.name}</h5>
 							<p className="card-text">{item.description}</p>
-							<a href="#" className="btn btn-primary" onClick={() => { addToChart(item) }}>Add To Chart</a>
+							<Button type="button" key={`btn-${item.id}`}
+								buttonStyle="btn--primary--solid"
+								buttonSize="btn--medium"
+								onClick={() => { addToChart(item) }}>Add To Chart</Button>
 						</div>
 					</div>
 				</div>
