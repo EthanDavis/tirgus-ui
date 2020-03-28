@@ -8,7 +8,7 @@ class ItemsChart extends Component {
 	render() {
 		const { itemsInChart } = this.props
 		return (
-			<div>
+			<div className="row">
 				Shopping Chart
 				{
 					itemsInChart.map(item =>
