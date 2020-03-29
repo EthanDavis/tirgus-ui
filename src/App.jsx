@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Redirect, Route, Switch } from "react-router-dom";
+import About from "./components/about/about";
 import InventoryFeed from "./components/inventory-feed/inventory-feed";
 import ItemsChart from "./components/items-chart/items-chart";
 import NavigationBar from "./components/navigation/navigation-bar";
-import About from "./components/about/about"
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
 
 const GlobalStore = React.createContext();
 class App extends Component {
@@ -117,6 +119,7 @@ class App extends Component {
 		return (
 			<React.Fragment>
 				<NavigationBar totalItemsInChart={this.state.chart.length} />
+				<ToastContainer />
 				<main className="container-fluid">
 					<Switch>
 						<Route path="/about" render={() => <About />} />
