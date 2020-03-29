@@ -16,7 +16,7 @@ class App extends Component {
 					id: 1,
 					name: "Test Item 1",
 					price: 15,
-					quantity: 10,
+					quantity: 0,
 					image: "https://picsum.photos/id/100/200/300"
 				},
 				{
@@ -37,7 +37,7 @@ class App extends Component {
 					id: 4,
 					name: "Test Item 4",
 					price: 15,
-					quantity: 10,
+					quantity: 0,
 					image: "https://picsum.photos/id/400/200/300"
 				},
 				{
@@ -51,7 +51,7 @@ class App extends Component {
 					id: 6,
 					name: "Test Item 6",
 					price: 15,
-					quantity: 10,
+					quantity: 0,
 					image: "https://picsum.photos/id/600/200/300"
 				}, {
 					id: 7,
@@ -92,7 +92,7 @@ class App extends Component {
 					id: 12,
 					name: "Test Item 12",
 					price: 15,
-					quantity: 10,
+					quantity: 0,
 					image: "https://picsum.photos/id/600/200/300"
 				},
 			]

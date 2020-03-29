@@ -12,7 +12,7 @@ const formatCurrency = (amount) => {
 }
 
 class InventoryItem extends Component {
-	state = {}
+
 	render() {
 		const { item, addToChart, children } = this.props;
 

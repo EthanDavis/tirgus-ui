@@ -18,11 +18,14 @@ class InventoryFeed extends Component {
 						<InventoryItem key={item.id}
 							addToChart={addToChart}
 							item={item} >
-							<Button type="button" key={`btn-${item.id}`}
-								buttonStyle="btn--primary--solid"
-								buttonSize="btn--medium"
-								onClick={() => { addToChart(item) }}>Add To Chart</Button>
+							{
+								item.quantity > 0 ? <Button type="button" key={`btn-${item.id}`}
+									buttonStyle="btn--primary--solid"
+									buttonSize="btn--medium"
+									onClick={() => { addToChart(item) }}>Add To Chart</Button> : "Out Of Stock"
+							}
 						</InventoryItem>
+
 					)}
 			</div>
 
