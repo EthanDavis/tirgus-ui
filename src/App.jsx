@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Redirect, Route, Switch } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import About from "./components/about/about";
 import InventoryFeed from "./components/inventory-feed/inventory-feed";
+import InventoryItemDetails from './components/inventory-item-details/inventory-item-details';
 import ItemsChart from "./components/items-chart/items-chart";
 import NavigationBar from "./components/navigation/navigation-bar";
-import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer } from "react-toastify";
-import httpService from './services/http-service'
+import httpService from './services/http-service';
 
 const GlobalStore = React.createContext();
 
@@ -123,6 +124,8 @@ class App extends Component {
 		this.setState({ chart })
 	};
 
+
+
 	render() {
 		return (
 			<React.Fragment>
@@ -131,11 +134,12 @@ class App extends Component {
 				<main className="container-fluid">
 					<Switch>
 						<Route path="/about" render={() => <About />} />
-						<Route path="/feed" render={() =>
-							<InventoryFeed inventory={this.state.inventory} addToChart={this.addToChart} {...this.props} />
+						<Route path="/feed" render={(props) =>
+							<InventoryFeed inventory={this.state.inventory} addToChart={this.addToChart} {...props} />
 						} />
-						<Route path="/chart" render={() =>
-							<ItemsChart itemsInChart={this.state.chart} deleteFromChart={this.deleteFromChart} {...this.props} />
+						<Route path="/items/:id" render={(props) => <InventoryItemDetails inventory={this.state.inventory} {...props} />} />
+						<Route path="/chart" render={(props) =>
+							<ItemsChart itemsInChart={this.state.chart} deleteFromChart={this.deleteFromChart} {...props} />
 						} />
 						<Redirect from="" to="/feed" />
 					</Switch>
