@@ -6,8 +6,10 @@ import ItemsChart from "./components/items-chart/items-chart";
 import NavigationBar from "./components/navigation/navigation-bar";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify";
+import httpService from './services/http-service'
 
 const GlobalStore = React.createContext();
+
 class App extends Component {
 
 	state = {
@@ -100,6 +102,12 @@ class App extends Component {
 			]
 		}
 	};
+
+	async componentDidMount() {
+		const response = await httpService.get("/api/items");
+
+		console.log("testing", response);
+	}
 
 
 	deleteFromChart = (itemId) => {
