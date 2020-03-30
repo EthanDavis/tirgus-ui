@@ -14,7 +14,8 @@ module.exports = {
 	devServer: {
 		historyApiFallback: true,
 		contentBase: './build',
-		port: 9000
+		port: 9000,
+		proxy: { "/api/**": { target: 'http://localhost:8080', secure: false } }
 	},
 	module: {
 		rules: [
