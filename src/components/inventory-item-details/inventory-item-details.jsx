@@ -6,13 +6,12 @@ const getItemById = (itemId, inventory) => {
 	return inventory.items[index];
 }
 
-const InventoryItemDetails = ({ match, inventory }) => {
-	const item = getItemById(match.params.id, inventory);
+const InventoryItemDetails = ({ item }) => {
+	console.log("testing", item);
 	return (
 		<div>
-
 			{
-				<span>InventoryItem {item.name}</span>
+				<span>InventoryItem {item}</span>
 			}
 		</div>
 	);

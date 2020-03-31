@@ -8,6 +8,7 @@ import InventoryItemDetails from './components/inventory-item-details/inventory-
 import ItemsChart from "./components/items-chart/items-chart";
 import NavigationBar from "./components/navigation/navigation-bar";
 import httpService from './services/http-service';
+import InventoryProvider from "./context/inventory-context";
 
 const GlobalStore = React.createContext();
 
@@ -15,93 +16,6 @@ class App extends Component {
 
 	state = {
 		chart: [],
-		inventory: {
-			items: [
-				{
-					id: 1,
-					name: "Test Item 1",
-					price: 15,
-					quantity: 0,
-					image: "https://picsum.photos/id/100/200/300"
-				},
-				{
-					id: 2,
-					name: "Test Item 2",
-					price: 10,
-					quantity: 10,
-					image: "https://picsum.photos/id/200/200/300"
-				},
-				{
-					id: 3,
-					name: "Test Item 3",
-					price: 15,
-					quantity: 10,
-					image: "https://picsum.photos/id/300/200/300"
-				},
-				{
-					id: 4,
-					name: "Test Item 4",
-					price: 15,
-					quantity: 0,
-					image: "https://picsum.photos/id/400/200/300"
-				},
-				{
-					id: 5,
-					name: "Test Item 5",
-					price: 15,
-					quantity: 10,
-					image: "https://picsum.photos/id/500/200/300"
-				},
-				{
-					id: 6,
-					name: "Test Item 6",
-					price: 15,
-					quantity: 0,
-					image: "https://picsum.photos/id/600/200/300"
-				}, {
-					id: 7,
-					name: "Test Item 7",
-					price: 15,
-					quantity: 10,
-					image: "https://picsum.photos/id/100/200/300"
-				},
-				{
-					id: 8,
-					name: "Test Item 8",
-					price: 15,
-					quantity: 10,
-					image: "https://picsum.photos/id/200/200/300"
-				},
-				{
-					id: 9,
-					name: "Test Item 9",
-					price: 15,
-					quantity: 10,
-					image: "https://picsum.photos/id/300/200/300"
-				},
-				{
-					id: 10,
-					name: "Test Item 10",
-					price: 15,
-					quantity: 10,
-					image: "https://picsum.photos/id/400/200/300"
-				},
-				{
-					id: 11,
-					name: "Test Item 11",
-					price: 15,
-					quantity: 10,
-					image: "https://picsum.photos/id/500/200/300"
-				},
-				{
-					id: 12,
-					name: "Test Item 12",
-					price: 15,
-					quantity: 0,
-					image: "https://picsum.photos/id/600/200/300"
-				},
-			]
-		}
 	};
 
 	async componentDidMount() {
@@ -124,27 +38,25 @@ class App extends Component {
 		this.setState({ chart })
 	};
 
-
-
 	render() {
 		return (
-			<React.Fragment>
+			<InventoryProvider>
 				<NavigationBar totalItemsInChart={this.state.chart.length} />
 				<ToastContainer />
 				<main className="container-fluid">
 					<Switch>
 						<Route path="/about" render={() => <About />} />
 						<Route path="/feed" render={(props) =>
-							<InventoryFeed inventory={this.state.inventory} addToChart={this.addToChart} {...props} />
+							<InventoryFeed addToChart={this.addToChart} {...props} />
 						} />
-						<Route path="/items/:id" render={(props) => <InventoryItemDetails inventory={this.state.inventory} {...props} />} />
+						<Route path="/items/:id" render={(props) => <InventoryItemDetails item={props.item} {...props} />} />
 						<Route path="/chart" render={(props) =>
 							<ItemsChart itemsInChart={this.state.chart} deleteFromChart={this.deleteFromChart} {...props} />
 						} />
 						<Redirect from="" to="/feed" />
 					</Switch>
 				</main>
-			</React.Fragment>
+			</InventoryProvider>
 		);
 	}
 }

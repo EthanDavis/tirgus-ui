@@ -1,20 +1,22 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from 'react';
+import React, { Component, useContext } from 'react';
 import InventoryItemCard from "../inventory-item-card/inventory-item-card";
 import "./inventory-feed.less";
 import Button from '../button/button';
+
+import { InventoryContext } from '../../context/inventory-context';
 
 class InventoryFeed extends Component {
 
 	render() {
 
-		const { inventory, addToChart } = this.props
-
+		const { addToChart } = this.props
+		const { inventory } = useContext(InventoryContext);
 		return (
 
 			<div className="row h-100 pt-4 justify-content-center align-items-center">
 				{
-					inventory.items.map(item =>
+					inventory.map(item =>
 						<InventoryItemCard key={item.id}
 							addToChart={addToChart}
 							item={item} >
