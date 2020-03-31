@@ -25,19 +25,6 @@ class App extends Component {
 	}
 
 
-	deleteFromChart = (itemId) => {
-		const items = this.state.chart.filter(item => item.id !== itemId);
-		this.setState({ chart: items });
-	};
-
-
-	addToChart = (inventoryItem) => {
-		const chart = [...this.state.chart]
-		chart.push(inventoryItem)
-
-		this.setState({ chart })
-	};
-
 	render() {
 		return (
 			<InventoryProvider>
