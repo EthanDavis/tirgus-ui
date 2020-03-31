@@ -16,7 +16,7 @@ class InventoryItemCard extends Component {
 
 	render() {
 		const { item, addToChart, children } = this.props;
-
+		
 		return (
 			<Link to={`/items/${item.id}`}>
 				<div className="row p-4">
