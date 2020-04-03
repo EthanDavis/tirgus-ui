@@ -18,7 +18,7 @@ class InventoryItemCard extends Component {
 		const { item, addToChart, children } = this.props;
 		
 		return (
-			<Link to={`/items/${item.id}`}>
+			// <Link to={`/items/${item.id}`}>
 				<div className="row p-4">
 					<div className="col-md-12">
 						<div className="card inventory-card" >
@@ -33,7 +33,7 @@ class InventoryItemCard extends Component {
 						</div>
 					</div>
 				</div>
-			</Link>
+			// </Link>
 		);
 	}
 }

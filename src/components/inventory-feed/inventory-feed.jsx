@@ -1,12 +1,14 @@
 /* eslint-disable react/prop-types */
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { InventoryContext } from '../../context/inventory-context';
 import Button from '../button/button';
 import InventoryItemCard from "../inventory-item-card/inventory-item-card";
 import "./inventory-feed.less";
+import { ItemsChartContext } from '../../context/items-chart-context';
 
 const InventoryFeed = () => {
 	const { inventory, setInventory } = useContext(InventoryContext);
+	const { chartState, dispatch } = useContext(ItemsChartContext);
 
 	return (
 		<div className="row h-100 pt-4 justify-content-center align-items-center">
@@ -18,7 +20,7 @@ const InventoryFeed = () => {
 							item.quantity > 0 ? <Button type="button" key={`btn-${item.id}`}
 								buttonStyle="btn--primary--solid"
 								buttonSize="btn--medium"
-								onClick={() => { console.log("TEST") }}>Add To Chart</Button> : "Out Of Stock"
+								onClick={() => { dispatch({ type: "ADD_TO_CHART", payload: item }) }}>Add To Chart</Button> : "Out Of Stock"
 						}
 					</InventoryItemCard>
 

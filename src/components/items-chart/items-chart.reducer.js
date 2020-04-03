@@ -1,10 +1,14 @@
-export const itemsChartReducer = (state, action) => {
+export const itemsChartReducer = (chartState, action) => {
 	console.log(action);
 	switch (action.type) {
 		case "ADD_TO_CHART":
-			return state
+			chartState.push(action.payload);
+			return chartState
+		case "DELETE_FROM_CHART":
+			const index = chartState.indexOf(action.payload.id);
+			chartState.splice(0, index);
 		default:
-			return state;
+			return chartState;
 	}
 };
 
@@ -14,12 +18,6 @@ export const itemsChartReducer = (state, action) => {
 // 	setChart({ chart: items });
 // };
 
-// addToChart = (inventoryItem) => {
-// 	const chart = [...chart]
-// 	chart.push(inventoryItem)
-
-// 	setChart({ chart })
-// };
 
 
 // await httpService.get("/api/items");
