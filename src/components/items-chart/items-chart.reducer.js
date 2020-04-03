@@ -11,13 +11,3 @@ export const itemsChartReducer = (chartState, action) => {
 			return chartState;
 	}
 };
-
-
-// deleteFromChart = (itemId) => {
-// 	const items = chart.filter(item => item.id !== itemId);
-// 	setChart({ chart: items });
-// };
-
-
-
-// await httpService.get("/api/items");

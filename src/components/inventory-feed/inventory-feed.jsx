@@ -7,9 +7,7 @@ import "./inventory-feed.less";
 import { ItemsChartContext } from '../../context/items-chart-context';
 
 const InventoryFeed = () => {
-	const { inventory, setInventory } = useContext(InventoryContext);
-	const { chartState, dispatch } = useContext(ItemsChartContext);
-
+	const { inventory, dispatch } = useContext(InventoryContext);
 	return (
 		<div className="row h-100 pt-4 justify-content-center align-items-center">
 			{

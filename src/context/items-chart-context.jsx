@@ -2,6 +2,8 @@
 import React, { createContext, useReducer, useContext, useState } from 'react';
 import { itemsChartReducer } from '../components/items-chart/items-chart.reducer';
 
+// await httpService.get("/api/items");
+
 export const ItemsChartContext = createContext();
 
 const ItemsChartProvider = ({ children }) => {

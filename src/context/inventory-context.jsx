@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
-import React, { Component, createContext, useState } from 'react';
+import React, { Component, createContext, useReducer } from 'react';
+import { inventoryReduce } from '../components/inventory-feed/inventory.reducer';
 
 export const InventoryContext = createContext();
 
 const InventoryProvider = ({ children }) => {
-	const [inventory, setInventory] = useState([
+	const [inventory, dispatch] = useReducer(inventoryReduce, [
 		{
 			id: 1,
 			name: "Test Item 1",
@@ -43,7 +44,7 @@ const InventoryProvider = ({ children }) => {
 	]);
 
 	return (
-		<InventoryContext.Provider value={{ inventory }}>
+		<InventoryContext.Provider value={{ inventory, dispatch }}>
 			{
 				children
 			}
