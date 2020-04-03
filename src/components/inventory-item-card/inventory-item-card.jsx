@@ -16,9 +16,9 @@ class InventoryItemCard extends Component {
 
 	render() {
 		const { item, addToChart, children } = this.props;
-		
+
 		return (
-			// <Link to={`/items/${item.id}`}>
+			<Link to={`/items/${item.id}`}>
 				<div className="row p-4">
 					<div className="col-md-12">
 						<div className="card inventory-card" >
@@ -26,14 +26,12 @@ class InventoryItemCard extends Component {
 							<div className="card-body text-center">
 								<h5 className="card-title">{item.name}</h5>
 								<p className="card-text">{formatCurrency(item.price)}</p>
-								{
-									children
-								}
+								<p className="card-text">{item.quantity > 0 ? "" : "Out of Stock"}</p>
 							</div>
 						</div>
 					</div>
 				</div>
-			// </Link>
+			</Link>
 		);
 	}
 }

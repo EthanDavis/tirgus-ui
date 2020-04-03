@@ -5,11 +5,11 @@ import InventoryItemCard from '../inventory-item-card/inventory-item-card';
 import { ItemsChartContext } from '../../context/items-chart-context';
 
 const ItemsChart = () => {
-	const { chart } = useContext(ItemsChartContext);
+	const { chartState } = useContext(ItemsChartContext);
 	return (
 		<div className="row justify-content-center align-items-center">
 			{
-				chart.map(item =>
+				chartState.map(item =>
 					<InventoryItemCard key={item.id}
 						item={item}>
 						<Button onClick={() => deleteFromChart(item.id)}

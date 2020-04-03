@@ -1,17 +1,15 @@
 /* eslint-disable react/prop-types */
 import React, { Component, useEffect } from 'react';
+import Button from '../button/button';
 
-const getItemById = (itemId, inventory) => {
-	const index = inventory.items.findIndex(item => item.id === parseInt(itemId));
-	return inventory.items[index];
-}
-
-const InventoryItemDetails = ({ item }) => {
+const InventoryItemDetails = ({ match }) => { 
 	return (
 		<div>
-			{
-				<span>InventoryItem {item}</span>
-			}
+
+			<Button type="button" key={`btn-${item.id}`}
+				buttonStyle="btn--primary--solid"
+				buttonSize="btn--medium"
+				onClick={() => { dispatch({ type: "ADD_TO_CHART", payload: item }) }}>Add To Chart</Button>
 		</div>
 	);
 }

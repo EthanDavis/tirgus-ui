@@ -14,16 +14,7 @@ const InventoryFeed = () => {
 		<div className="row h-100 pt-4 justify-content-center align-items-center">
 			{
 				inventory.map(item =>
-					<InventoryItemCard key={item.id}
-						item={item} >
-						{
-							item.quantity > 0 ? <Button type="button" key={`btn-${item.id}`}
-								buttonStyle="btn--primary--solid"
-								buttonSize="btn--medium"
-								onClick={() => { dispatch({ type: "ADD_TO_CHART", payload: item }) }}>Add To Chart</Button> : "Out Of Stock"
-						}
-					</InventoryItemCard>
-
+					<InventoryItemCard key={item.id} item={item} />
 				)}
 		</div>
 	);
