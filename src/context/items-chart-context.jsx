@@ -1,31 +1,20 @@
 /* eslint-disable react/prop-types */
-import React, { Component, createContext, useState } from 'react';
+import React, { createContext, useReducer, useContext, useState } from 'react';
+import { itemsChartReducer } from '../components/items-chart/items-chart.reducer';
 
 export const ItemsChartContext = createContext();
 
 const ItemsChartProvider = ({ children }) => {
 
-	const [chart, setChart] = useState([]);
-
-
-	deleteFromChart = (itemId) => {
-		const items = this.state.chart.filter(item => item.id !== itemId);
-		setChart({ chart: items });
-	};
-
-
-	addToChart = (inventoryItem) => {
-		const chart = [...this.state.chart]
-		chart.push(inventoryItem)
-
-		setChart({ chart })
-	};
+	const [chartState, dispatch] = useReducer(itemsChartReducer, []);
 
 	return (
-		<ItemsChartContext.Provider value={chart, addToChart, deleteFromChart}>
+		<ItemsChartContext.Provider value={{ chartState, dispatch }}>
 			{
 				children
 			}
 		</ItemsChartContext.Provider>
 	);
-}
+};
+
+export default ItemsChartProvider;

@@ -1,38 +1,30 @@
 /* eslint-disable react/prop-types */
-import React, { Component, useContext } from 'react';
+import React, { useContext } from 'react';
+import { InventoryContext } from '../../context/inventory-context';
+import Button from '../button/button';
 import InventoryItemCard from "../inventory-item-card/inventory-item-card";
 import "./inventory-feed.less";
-import Button from '../button/button';
 
-import { InventoryContext } from '../../context/inventory-context';
+const InventoryFeed = () => {
+	const { inventory, setInventory } = useContext(InventoryContext);
 
-class InventoryFeed extends Component {
+	return (
+		<div className="row h-100 pt-4 justify-content-center align-items-center">
+			{
+				inventory.map(item =>
+					<InventoryItemCard key={item.id}
+						item={item} >
+						{
+							item.quantity > 0 ? <Button type="button" key={`btn-${item.id}`}
+								buttonStyle="btn--primary--solid"
+								buttonSize="btn--medium"
+								onClick={() => { console.log("TEST") }}>Add To Chart</Button> : "Out Of Stock"
+						}
+					</InventoryItemCard>
 
-	render() {
-
-		const { addToChart } = this.props
-		const { inventory } = useContext(InventoryContext);
-		return (
-
-			<div className="row h-100 pt-4 justify-content-center align-items-center">
-				{
-					inventory.map(item =>
-						<InventoryItemCard key={item.id}
-							addToChart={addToChart}
-							item={item} >
-							{
-								item.quantity > 0 ? <Button type="button" key={`btn-${item.id}`}
-									buttonStyle="btn--primary--solid"
-									buttonSize="btn--medium"
-									onClick={() => { addToChart(item) }}>Add To Chart</Button> : "Out Of Stock"
-							}
-						</InventoryItemCard>
-
-					)}
-			</div>
-
-		);
-	}
+				)}
+		</div>
+	);
 }
 
 export default InventoryFeed;

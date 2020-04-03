@@ -39,60 +39,11 @@ const InventoryProvider = ({ children }) => {
 			price: 15,
 			quantity: 10,
 			image: "https://picsum.photos/id/500/200/300"
-		},
-		{
-			id: 6,
-			name: "Test Item 6",
-			price: 15,
-			quantity: 0,
-			image: "https://picsum.photos/id/600/200/300"
-		}, {
-			id: 7,
-			name: "Test Item 7",
-			price: 15,
-			quantity: 10,
-			image: "https://picsum.photos/id/100/200/300"
-		},
-		{
-			id: 8,
-			name: "Test Item 8",
-			price: 15,
-			quantity: 10,
-			image: "https://picsum.photos/id/200/200/300"
-		},
-		{
-			id: 9,
-			name: "Test Item 9",
-			price: 15,
-			quantity: 10,
-			image: "https://picsum.photos/id/300/200/300"
-		},
-		{
-			id: 10,
-			name: "Test Item 10",
-			price: 15,
-			quantity: 10,
-			image: "https://picsum.photos/id/400/200/300"
-		},
-		{
-			id: 11,
-			name: "Test Item 11",
-			price: 15,
-			quantity: 10,
-			image: "https://picsum.photos/id/500/200/300"
-		},
-		{
-			id: 12,
-			name: "Test Item 12",
-			price: 15,
-			quantity: 0,
-			image: "https://picsum.photos/id/600/200/300"
 		}
 	]);
 
-
 	return (
-		<InventoryContext.Provider value={inventory}>
+		<InventoryContext.Provider value={{ inventory }}>
 			{
 				children
 			}

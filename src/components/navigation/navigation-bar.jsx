@@ -1,11 +1,15 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useContext } from 'react';
 import './navigation-bar.less'
 import { NavLink, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+import { ItemsChartContext } from "../../context/items-chart-context";
 
-const NavigationBar = ({ totalItemsInChart }) => {
+const NavigationBar = () => {
+
+	const { chartState, dispatch } = useContext(ItemsChartContext);
+
 	return (
 		<nav className="navbar navbar-light navigation-bar sticky-top">
 			<Link className="navbar-brand" to="/">AH Butique</Link>
@@ -15,10 +19,9 @@ const NavigationBar = ({ totalItemsInChart }) => {
 			<NavLink className="nav-item nav-link" to="/chart">
 				<div>
 					<FontAwesomeIcon icon={faShoppingCart} size="lg" />
-					<span className="navbar-chart-count">{totalItemsInChart}</span>
+					<span className="navbar-chart-count">{chartState.length}</span>
 				</div>
 			</NavLink>
-
 		</nav>
 	);
 }

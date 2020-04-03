@@ -7,7 +7,6 @@ const getItemById = (itemId, inventory) => {
 }
 
 const InventoryItemDetails = ({ item }) => {
-	console.log("testing", item);
 	return (
 		<div>
 			{

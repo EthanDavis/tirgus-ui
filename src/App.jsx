@@ -9,40 +9,26 @@ import ItemsChart from "./components/items-chart/items-chart";
 import NavigationBar from "./components/navigation/navigation-bar";
 import httpService from './services/http-service';
 import InventoryProvider from "./context/inventory-context";
-
-const GlobalStore = React.createContext();
+import ItemsChartProvider from './context/items-chart-context';
 
 class App extends Component {
-
-	state = {
-		chart: [],
-	};
-
-	async componentDidMount() {
-		const response = await httpService.get("/api/items");
-
-		console.log("testing", response);
-	}
-
 
 	render() {
 		return (
 			<InventoryProvider>
-				<NavigationBar totalItemsInChart={this.state.chart.length} />
-				<ToastContainer />
-				<main className="container-fluid">
-					<Switch>
-						<Route path="/about" render={() => <About />} />
-						<Route path="/feed" render={(props) =>
-							<InventoryFeed addToChart={this.addToChart} {...props} />
-						} />
-						<Route path="/items/:id" render={(props) => <InventoryItemDetails item={props.item} {...props} />} />
-						<Route path="/chart" render={(props) =>
-							<ItemsChart itemsInChart={this.state.chart} deleteFromChart={this.deleteFromChart} {...props} />
-						} />
-						<Redirect from="" to="/feed" />
-					</Switch>
-				</main>
+				<ItemsChartProvider>
+					<NavigationBar />
+					<ToastContainer />
+					<main className="container-fluid">
+						<Switch>
+							<Route path="/about" component={About} />
+							<Route path="/feed" component={InventoryFeed} />
+							<Route path="/items/:id" component={InventoryItemDetails} />
+							<Route path="/chart" component={ItemsChart} />
+							<Redirect from="" to="/feed" />
+						</Switch>
+					</main>
+				</ItemsChartProvider>
 			</InventoryProvider>
 		);
 	}
