@@ -21,10 +21,10 @@ class App extends Component {
 					<ToastContainer />
 					<main className="container-fluid">
 						<Switch>
-							<Route path="/about" component={About} />
-							<Route path="/feed" component={InventoryFeed} />
-							<Route path="/items/:id" component={InventoryItemDetails} />
-							<Route path="/chart" component={ItemsChart} />
+							<Route path="/about" component={About} {...this.props} />
+							<Route path="/feed" component={InventoryFeed}  {...this.props} />
+							<Route path="/items/:id" component={InventoryItemDetails}  {...this.props} />
+							<Route path="/chart" component={ItemsChart}  {...this.props} />
 							<Redirect from="" to="/feed" />
 						</Switch>
 					</main>

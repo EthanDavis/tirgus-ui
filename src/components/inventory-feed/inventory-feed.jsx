@@ -6,13 +6,15 @@ import InventoryItemCard from "../inventory-item-card/inventory-item-card";
 import "./inventory-feed.less";
 import { ItemsChartContext } from '../../context/items-chart-context';
 
-const InventoryFeed = () => {
+const InventoryFeed = (props) => {
 	const { inventory, dispatch } = useContext(InventoryContext);
+	const { history } = props
+
 	return (
 		<div className="row h-100 pt-4 justify-content-center align-items-center">
 			{
 				inventory.map(item =>
-					<InventoryItemCard key={item.id} item={item} />
+					<InventoryItemCard key={item.id} item={item} history={history} />
 				)}
 		</div>
 	);

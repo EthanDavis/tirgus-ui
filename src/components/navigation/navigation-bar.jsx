@@ -9,7 +9,7 @@ import { ItemsChartContext } from "../../context/items-chart-context";
 const NavigationBar = () => {
 
 	const { chartState, dispatch } = useContext(ItemsChartContext);
-
+	
 	return (
 		<nav className="navbar navbar-light navigation-bar sticky-top">
 			<Link className="navbar-brand" to="/">AH Butique</Link>
