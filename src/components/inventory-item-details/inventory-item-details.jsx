@@ -1,17 +1,24 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect } from 'react';
+import React, { useEffect, createContext, useReducer } from 'react';
 import Button from '../button/button';
 import httpService from "../../services/http-service"
+import { inventoryItemDetailsReduce } from './inventory-item-details.reducer';
+
+export const ItemsDetailsContext = createContext();
+
 
 const InventoryItemDetails = ({ match }) => {
-	let item = {};
+
+	const [item, dispatch] = useReducer(inventoryItemDetailsReduce, {});
+
 	useEffect(() => {
 		const getItem = async () => {
-			item = await httpService.get(`items/${match.params.id}`);
+			const initalItem = await httpService.get(`/api/inventory/items/${match.params.id}`);
+			dispatch({ type: "SET_INVENTORY_ITEM", payload: initalItem.data })
 		}
-
-		console.log("item", getItem());
+		getItem()
 	});
+
 	return (
 		<div>
 			<Button type="button" key={`btn-${item.id}`}

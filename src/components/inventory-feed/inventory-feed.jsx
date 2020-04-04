@@ -1,14 +1,21 @@
 /* eslint-disable react/prop-types */
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { InventoryContext } from '../../context/inventory-context';
-import Button from '../button/button';
 import InventoryItemCard from "../inventory-item-card/inventory-item-card";
+import httpService from "../../services/http-service";
 import "./inventory-feed.less";
-import { ItemsChartContext } from '../../context/items-chart-context';
 
 const InventoryFeed = (props) => {
 	const { inventory, dispatch } = useContext(InventoryContext);
 	const { history } = props
+
+	useEffect(() => {
+		const getInventory = async () => {
+			const initialInventoryState = await httpService.get(`/api/inventory/items`);
+			dispatch({ type: "SET_INVENTORY", payload: initialInventoryState.data });
+		}
+		getInventory();	
+	});	
 
 	return (
 		<div className="row h-100 pt-4 justify-content-center align-items-center">
