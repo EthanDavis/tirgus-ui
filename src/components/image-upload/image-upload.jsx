@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const fileSelectedHandler = (event) => {
 	convertImageToBase64String(event)
 };

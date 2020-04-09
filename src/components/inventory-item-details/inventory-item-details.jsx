@@ -1,12 +1,10 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, createContext, useReducer } from 'react';
+import React, { createContext, useEffect, useReducer } from 'react';
+import httpService from "../../services/http-service";
 import Button from '../button/button';
-import httpService from "../../services/http-service"
 import { inventoryItemDetailsReducer } from './inventory-item-details.reducer';
-import ImageUpload from '../image-upload/image-upload';
 
 export const ItemsDetailsContext = createContext();
-
 
 const InventoryItemDetails = ({ match }) => {
 
@@ -33,9 +31,8 @@ const InventoryItemDetails = ({ match }) => {
 					buttonSize="btn--medium"
 					onClick={() => { dispatch({ type: "ADD_TO_CHART", payload: item }) }}>Add To Chart</Button>
 			</div>
-			<ImageUpload />
 		</div>
-		
+
 	);
 }
 
