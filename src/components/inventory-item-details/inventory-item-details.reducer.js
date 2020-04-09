@@ -1,4 +1,4 @@
-export const inventoryItemDetailsReduce = (itemState, action) => {
+export const inventoryItemDetailsReducer = (itemState, action) => {
 	switch (action.type) {
 		case "SET_INVENTORY_ITEM":
 			console.log("testing", action.payload);

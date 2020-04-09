@@ -4,6 +4,7 @@ import { InventoryContext } from '../../context/inventory-context';
 import InventoryItemCard from "../inventory-item-card/inventory-item-card";
 import httpService from "../../services/http-service";
 import "./inventory-feed.less";
+import Loading from '../loading/loading';
 
 const InventoryFeed = (props) => {
 	const { inventory, dispatch } = useContext(InventoryContext);
@@ -14,12 +15,12 @@ const InventoryFeed = (props) => {
 			const initialInventoryState = await httpService.get(`/api/inventory/items`);
 			dispatch({ type: "SET_INVENTORY", payload: initialInventoryState.data });
 		}
-		getInventory();	
-	});	
+		getInventory();
+	}, []);
 
 	return (
 		<div className="row h-100 pt-4 justify-content-center align-items-center">
-			{
+			{inventory.length === 0 ? <Loading /> :
 				inventory.map(item =>
 					<InventoryItemCard key={item.id} item={item} history={history} />
 				)}

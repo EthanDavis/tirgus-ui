@@ -2,14 +2,15 @@
 import React, { useEffect, createContext, useReducer } from 'react';
 import Button from '../button/button';
 import httpService from "../../services/http-service"
-import { inventoryItemDetailsReduce } from './inventory-item-details.reducer';
+import { inventoryItemDetailsReducer } from './inventory-item-details.reducer';
+import ImageUpload from '../image-upload/image-upload';
 
 export const ItemsDetailsContext = createContext();
 
 
 const InventoryItemDetails = ({ match }) => {
 
-	const [item, dispatch] = useReducer(inventoryItemDetailsReduce, {});
+	const [item, dispatch] = useReducer(inventoryItemDetailsReducer, {});
 
 	useEffect(() => {
 		const getItem = async () => {
@@ -17,7 +18,7 @@ const InventoryItemDetails = ({ match }) => {
 			dispatch({ type: "SET_INVENTORY_ITEM", payload: initalItem.data })
 		}
 		getItem()
-	});
+	}, []);
 
 	return (
 		<div className="row">
@@ -32,8 +33,9 @@ const InventoryItemDetails = ({ match }) => {
 					buttonSize="btn--medium"
 					onClick={() => { dispatch({ type: "ADD_TO_CHART", payload: item }) }}>Add To Chart</Button>
 			</div>
+			<ImageUpload />
 		</div>
-
+		
 	);
 }
 
