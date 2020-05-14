@@ -6,10 +6,10 @@ export const ItemsChartContext = createContext();
 
 const ItemsChartProvider = ({ children }) => {
 
-	const [chartState, dispatch] = useReducer(itemsChartReducer, []);
+	const [chartState, itemsChartDispatch] = useReducer(itemsChartReducer, []);
 
 	return (
-		<ItemsChartContext.Provider value={{ chartState, dispatch }}>
+		<ItemsChartContext.Provider value={{ chartState, itemsChartDispatch }}>
 			{
 				children
 			}

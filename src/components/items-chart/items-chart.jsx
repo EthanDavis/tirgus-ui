@@ -16,7 +16,6 @@ const ItemsChart = () => {
 							type="button" key={`btn-${item.id}`}
 							buttonStyle="btn--danger--solid"
 							buttonSize="btn--medium">
-							Remove From Chart
 								</Button>
 					</InventoryItemCard>
 				)}

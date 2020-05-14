@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
-import React, { createContext, useEffect, useReducer, useState } from 'react';
+import React, { createContext, useEffect, useReducer, useState, useContext } from 'react';
 import httpService from "../../services/http-service";
 import Button from '../button/button';
 import { inventoryItemDetailsReducer } from './inventory-item-details.reducer';
 import "./inventory-item-details.less"
 import { itemsChartReducer } from '../items-chart/items-chart.reducer';
+import { ItemsChartContext } from '../../context/items-chart-context';
+
 export const ItemsDetailsContext = createContext();
 
 const formatCurrency = (amount) => {
@@ -17,7 +19,7 @@ const formatCurrency = (amount) => {
 }
 
 const InventoryItemDetails = ({ match }) => {
-
+	const { inventory, itemsChartDispatch } = useContext(ItemsChartContext);
 	const [item, dispatch] = useReducer(inventoryItemDetailsReducer, {});
 
 	useEffect(() => {
@@ -44,7 +46,7 @@ const InventoryItemDetails = ({ match }) => {
 					<Button type="button" key={`btn-${item.id}`}
 						buttonStyle="btn--primary--solid"
 						buttonSize="btn--large"
-						onClick={() => { dispatch({ type: "ADD_TO_CHART", payload: item }) }}>Add To Chart</Button>
+						onClick={() => { itemsChartDispatch({ type: "ADD_TO_CHART", payload: item }) }}>Add To Chart</Button>
 				</div>
 			</div>
 		</div>
