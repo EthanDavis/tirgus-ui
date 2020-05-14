@@ -1,5 +1,6 @@
 import React, { Component} from 'react';
 import { Redirect } from 'react-router-dom';
+import PropTypes from "prop-types"
 import './inventory-item-card.less';
 
 const formatCurrency = (amount) => {
@@ -14,7 +15,7 @@ const formatCurrency = (amount) => {
 class InventoryItemCard extends Component {
 
 	render() {
-		const { item, addToChart, children, history } = this.props;
+		const { item, history } = this.props;
 		console.log("items: ", item)
 		return (
 			<div className="row p-4" onClick={() => history.push(`items/${item.id}`)}>
@@ -34,7 +35,8 @@ class InventoryItemCard extends Component {
 }
 
 InventoryItemCard.propTypes = {
-	item: 
+	item: PropTypes.object,
+	history: PropTypes.object
 }
 
 export default InventoryItemCard;

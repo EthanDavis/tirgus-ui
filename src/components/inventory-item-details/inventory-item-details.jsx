@@ -1,11 +1,10 @@
-/* eslint-disable react/prop-types */
-import React, { createContext, useEffect, useReducer, useState, useContext } from 'react';
+import { PropTypes } from 'prop-types';
+import React, { createContext, useContext, useEffect, useReducer } from 'react';
+import { ItemsChartContext } from '../../context/items-chart-context';
 import httpService from "../../services/http-service";
 import Button from '../button/button';
+import "./inventory-item-details.less";
 import { inventoryItemDetailsReducer } from './inventory-item-details.reducer';
-import "./inventory-item-details.less"
-import { itemsChartReducer } from '../items-chart/items-chart.reducer';
-import { ItemsChartContext } from '../../context/items-chart-context';
 
 export const ItemsDetailsContext = createContext();
 
@@ -52,6 +51,10 @@ const InventoryItemDetails = ({ match }) => {
 		</div>
 
 	);
+}
+
+InventoryItemDetails.propTypes = {
+	match: PropTypes.object
 }
 
 export default InventoryItemDetails;

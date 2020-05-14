@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
-import React, { Component } from 'react';
-import "./button.less"
+import { PropTypes } from 'prop-types';
+import React from 'react';
+import "./button.less";
 const STYLES = [
 	"btn--primary--solid",
 	"btn--warning--solid",
@@ -27,6 +27,14 @@ const Button = ({ children, type, onClick, buttonStyle, buttonSize }) => {
 			{children}
 		</button>
 	);
+}
+
+Button.propTypes = {
+	children: PropTypes.node.isRequired,
+	type: PropTypes.string.isRequired,
+	onClick: PropTypes.func.isRequired,
+	buttonStyle: PropTypes.string.isRequired,
+	buttonSize: PropTypes.string.isRequired
 }
 
 export default Button;

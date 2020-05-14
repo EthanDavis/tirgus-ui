@@ -1,10 +1,10 @@
-/* eslint-disable react/prop-types */
 import React, { useContext, useEffect } from 'react';
 import { InventoryContext } from '../../context/inventory-context';
 import InventoryItemCard from "../inventory-item-card/inventory-item-card";
 import httpService from "../../services/http-service";
 import "./inventory-feed.less";
 import Loading from '../loading/loading';
+import { PropTypes } from 'prop-types';
 
 const InventoryFeed = (props) => {
 	const { inventory, dispatch } = useContext(InventoryContext);
@@ -26,6 +26,10 @@ const InventoryFeed = (props) => {
 				)}
 		</div>
 	);
+}
+
+InventoryFeed.propTypes = {
+	history: PropTypes.object
 }
 
 export default InventoryFeed;
