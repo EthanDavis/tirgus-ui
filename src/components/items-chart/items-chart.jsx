@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useContext } from 'react';
 import InventoryItemCard from '../inventory-item-card/inventory-item-card';
 import { ItemsChartContext } from '../../context/items-chart-context';

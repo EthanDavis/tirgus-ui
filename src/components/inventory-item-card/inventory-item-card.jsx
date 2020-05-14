@@ -1,5 +1,4 @@
-/* eslint-disable react/prop-types */
-import React, { Component } from 'react';
+import React, { Component} from 'react';
 import { Redirect } from 'react-router-dom';
 import './inventory-item-card.less';
 
@@ -32,6 +31,10 @@ class InventoryItemCard extends Component {
 			</div>
 		);
 	}
+}
+
+InventoryItemCard.propTypes = {
+	item: 
 }
 
 export default InventoryItemCard;
