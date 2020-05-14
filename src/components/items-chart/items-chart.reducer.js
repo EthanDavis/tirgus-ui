@@ -1,8 +1,12 @@
 export const itemsChartReducer = (chartState, action) => {
-	console.log(action);
 	switch (action.type) {
 		case "ADD_TO_CHART":
-			chartState.push(action.payload);
+			const count = chartState.map((item) => {
+				let count = count + (action.payload.id === item.id) ? 1 : 0;
+				return count;
+			});
+		
+			chartState.push({ ...action.payload.item, count: count });
 			return chartState
 		case "DELETE_FROM_CHART":
 			const index = chartState.indexOf(action.payload.id);
