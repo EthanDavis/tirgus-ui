@@ -6,17 +6,19 @@ import Button from '../button/button';
 const ItemsChart = () => {
 	const { chartState, itemsChartDispatch } = useContext(ItemsChartContext);
 	return (
-		<div className="row justify-content-center align-items-center">
+		<div className="row">
 			{
 				chartState.map(chartItem =>
-					<React.Fragment key={chartItem.item.id} >
+					<div key={chartItem.item.id} className="col-md-6">
 						<InventoryItemCard item={chartItem.item} />
-						<div>quantity: {chartItem.count}</div>
-						<Button type="button" key={`btn-${chartItem.item.id}`}
-							buttonStyle="btn--danger--solid"
-							buttonSize="btn--large"
-							onClick={() => { itemsChartDispatch({ type: "DELETE_FROM_CHART", payload: chartItem }) }}>Remove From Chart</Button>
-					</React.Fragment>
+						<div className="col-md-6">
+							quantity: {chartItem.count}
+							<Button type="button" key={`btn-${chartItem.item.id}`}
+								buttonStyle="btn--danger--solid"
+								buttonSize="btn--large"
+								onClick={() => { itemsChartDispatch({ type: "DELETE_FROM_CHART", payload: chartItem }) }}>Remove From Chart</Button>
+						</div>
+					</div>
 				)}
 		</div>
 	);
