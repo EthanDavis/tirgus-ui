@@ -12,7 +12,7 @@ const ItemsChart = () => {
 					<React.Fragment key={chartItem.item.id} >
 						<InventoryItemCard item={chartItem.item} />
 						<Button type="button" key={`btn-${chartItem.item.id}`}
-							buttonStyle="btn--primary--solid"
+							buttonStyle="btn--danger--solid"
 							buttonSize="btn--large"
 							onClick={() => { itemsChartDispatch({ type: "DELETE_FROM_CHART", payload: chartItem }) }}>Remove From Chart</Button>
 					</React.Fragment>

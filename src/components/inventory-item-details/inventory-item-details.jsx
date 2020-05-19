@@ -43,7 +43,7 @@ const InventoryItemDetails = ({ match }) => {
 						<p>{formatCurrency(item.price)}</p>
 					</div>
 					<Button type="button" key={`btn-${item.id}`}
-						buttonStyle="btn--danger--solid"
+						buttonStyle="btn--primary--solid"
 						buttonSize="btn--large"
 						onClick={() => { itemsChartDispatch({ type: "ADD_TO_CHART", payload: { item: item, count: 1 } }) }}>Add To Chart</Button>
 				</div>
