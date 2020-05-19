@@ -11,6 +11,7 @@ const ItemsChart = () => {
 				chartState.map(chartItem =>
 					<React.Fragment key={chartItem.item.id} >
 						<InventoryItemCard item={chartItem.item} />
+						<div>quantity: {chartItem.count}</div>
 						<Button type="button" key={`btn-${chartItem.item.id}`}
 							buttonStyle="btn--danger--solid"
 							buttonSize="btn--large"
