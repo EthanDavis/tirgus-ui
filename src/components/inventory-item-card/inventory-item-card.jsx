@@ -16,7 +16,6 @@ class InventoryItemCard extends Component {
 
 	render() {
 		const { item, history } = this.props;
-		console.log("items: ", item)
 		return (
 			<div className="row p-4" onClick={() => history.push(`items/${item.id}`)}>
 				<div className="col-md-12">

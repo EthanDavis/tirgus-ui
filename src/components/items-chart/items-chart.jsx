@@ -7,8 +7,8 @@ const ItemsChart = () => {
 	return (
 		<div className="row justify-content-center align-items-center">
 			{
-				chartState.map(item =>
-					<InventoryItemCard key={item.id} item={item}/ >
+				chartState.map(chartItem =>
+					<InventoryItemCard key={chartItem.item.id} item={chartItem.item}/ >
 				)}
 		</div>
 	);

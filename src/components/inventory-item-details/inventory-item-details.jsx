@@ -45,7 +45,7 @@ const InventoryItemDetails = ({ match }) => {
 					<Button type="button" key={`btn-${item.id}`}
 						buttonStyle="btn--primary--solid"
 						buttonSize="btn--large"
-						onClick={() => { itemsChartDispatch({ type: "ADD_TO_CHART", payload: item }) }}>Add To Chart</Button>
+						onClick={() => { itemsChartDispatch({ type: "ADD_TO_CHART", payload: { item: item, count: 1 } }) }}>Add To Chart</Button>
 				</div>
 			</div>
 		</div>
