@@ -26,18 +26,6 @@
 		"url": "https://github.com/EthanDavis/tirgus-ui/issues"
 	},
 	"homepage": "https://github.com/EthanDavis/tirgus-ui#readme",
-	"jest": {
-		"snapshotSerializers": [
-			"enzyme-to-json/serializer"
-		],
-		"collectCoverageFrom": [
-			"src/**/*.js",
-			"!src/index.js"
-		],
-		"coverageReporters": [
-			"text"
-		]
-	},
 	"dependencies": {
 		"@babel/runtime": "^7.9.2",
 		"@fortawesome/fontawesome-svg-core": "^1.2.28",
@@ -63,9 +51,6 @@
 		"babel-jest": "25.1.0",
 		"babel-loader": "8.0.6",
 		"css-loader": "3.2.0",
-		"enzyme": "3.11.0",
-		"enzyme-adapter-react-16": "1.15.2",
-		"enzyme-to-json": "3.4.4",
 		"eslint": "6.2.1",
 		"eslint-config-react": "1.1.7",
 		"eslint-loader": "2.2.1",
