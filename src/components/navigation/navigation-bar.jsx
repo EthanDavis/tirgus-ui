@@ -17,7 +17,10 @@ const NavigationBar = () => {
 			<NavLink className="nav-item nav-link chart-icon" to="/chart">
 				<div>
 					<FontAwesomeIcon icon={faShoppingCart} size="lg" />
-					<span className="navbar-chart-count">{chartState.length}</span>
+					<span className="navbar-chart-count"> {
+						chartState.map(chartItem => chartItem.count).reduce((count1, count2) => count1 + count2, 0)
+					}
+					</span>
 				</div>
 			</NavLink>
 		</nav>
