@@ -1,14 +1,24 @@
 {
-  "parser": "babel-eslint",
-  "plugins": ["react"],
-  "extends": ["plugin:react/recommended"],
-  "parserOptions": {
-    "ecmaVersion": 2018,
-    "sourceType": "module"
-  },
-  "env": {
-    "es6": true,
-    "node": true,
-    "browser": true
-  }
+	"parser": "babel-eslint",
+	"plugins": [
+		"react"
+	],
+	"extends": [
+		"plugin:react/recommended"
+	],
+	"parserOptions": {
+		"ecmaVersion": 2018,
+		"sourceType": "module"
+	},
+	"env": {
+		"es6": true,
+		"node": true,
+		"browser": true
+	},
+	"settings": {
+		"react": {
+			"pragma": "React",
+			"version": "detect"
+		}
+	}
 }

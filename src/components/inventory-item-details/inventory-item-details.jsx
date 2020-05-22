@@ -18,7 +18,7 @@ const formatCurrency = (amount) => {
 }
 
 const InventoryItemDetails = ({ match }) => {
-	const { inventory, itemsChartDispatch } = useContext(ItemsChartContext);
+	const { chartState, itemsChartDispatch } = useContext(ItemsChartContext);
 	const [item, dispatch] = useReducer(inventoryItemDetailsReducer, {});
 
 	useEffect(() => {
@@ -28,6 +28,27 @@ const InventoryItemDetails = ({ match }) => {
 		}
 		getItem()
 	}, []);
+
+	const addToChart = (item) => {
+		const chartStateCopy = [].concat(chartState);
+		const itemIdx = getItemIndex(item)
+		if (itemIdx != -1) {
+			chartStateCopy[itemIdx].count++;
+		} else {
+			chartStateCopy.push({ item, count: 1 })
+		}
+		itemsChartDispatch({ type: "ADD_TO_CHART", payload: chartStateCopy })
+	}
+
+	const getItemIndex = (chartItem) => {
+		let itemIdx = -1;
+		for (let i = 0; i < chartState.length; i++) {
+			if (chartState[i].item.id === item.id) {
+				itemIdx = i;
+			}
+		}
+		return itemIdx;
+	}
 
 	return (
 		<div className="container-fluid">
@@ -45,7 +66,7 @@ const InventoryItemDetails = ({ match }) => {
 					<Button type="button" key={`btn-${item.id}`}
 						buttonStyle="btn--primary--solid"
 						buttonSize="btn--large"
-						onClick={() => { itemsChartDispatch({ type: "ADD_TO_CHART", payload: { item: item, count: 1 } }) }}>Add To Chart</Button>
+						onClick={() => { addToChart(item) }}>Add To Chart</Button>
 				</div>
 			</div>
 		</div>
