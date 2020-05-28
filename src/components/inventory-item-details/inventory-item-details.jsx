@@ -1,6 +1,6 @@
 import { PropTypes } from 'prop-types';
 import React, { createContext, useContext, useEffect, useReducer } from 'react';
-import { ItemsChartContext } from '../../context/items-chart-context';
+import { ItemsCartContext } from '../../context/items-cart-context';
 import httpService from "../../services/http-service";
 import Button from '../button/button';
 import "./inventory-item-details.less";
@@ -18,7 +18,7 @@ const formatCurrency = (amount) => {
 }
 
 const InventoryItemDetails = ({ match }) => {
-	const { chartState, itemsChartDispatch } = useContext(ItemsChartContext);
+	const { cartState, ItemsCartDispatch } = useContext(ItemsCartContext);
 	const [item, dispatch] = useReducer(inventoryItemDetailsReducer, {});
 
 	useEffect(() => {
@@ -29,21 +29,21 @@ const InventoryItemDetails = ({ match }) => {
 		getItem()
 	}, []);
 
-	const addToChart = (item) => {
-		const chartStateCopy = [].concat(chartState);
+	const addToCart = (item) => {
+		const cartStateCopy = [].concat(cartState);
 		const itemIdx = getItemIndex(item)
 		if (itemIdx != -1) {
-			chartStateCopy[itemIdx].count++;
+			cartStateCopy[itemIdx].count++;
 		} else {
-			chartStateCopy.push({ item, count: 1 })
+			cartStateCopy.push({ item, count: 1 })
 		}
-		itemsChartDispatch({ type: "ADD_TO_CHART", payload: chartStateCopy })
+		ItemsCartDispatch({ type: "ADD_TO_CART", payload: cartStateCopy })
 	}
 
-	const getItemIndex = (chartItem) => {
+	const getItemIndex = (cartItem) => {
 		let itemIdx = -1;
-		for (let i = 0; i < chartState.length; i++) {
-			if (chartState[i].item.id === item.id) {
+		for (let i = 0; i < cartState.length; i++) {
+			if (cartState[i].item.id === item.id) {
 				itemIdx = i;
 			}
 		}
@@ -66,7 +66,7 @@ const InventoryItemDetails = ({ match }) => {
 					<Button type="button" key={`btn-${item.id}`}
 						buttonStyle="btn--primary--solid"
 						buttonSize="btn--large"
-						onClick={() => { addToChart(item) }}>Add To Chart</Button>
+						onClick={() => { addToCart(item) }}>Add To Cart</Button>
 				</div>
 			</div>
 		</div>
