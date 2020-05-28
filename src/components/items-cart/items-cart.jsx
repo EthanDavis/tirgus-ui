@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import InventoryItemCard from '../inventory-item-card/inventory-item-card';
 import { ItemsCartContext } from '../../context/items-cart-context';
-import Button from '../button/button';
-
+import "./items-cart.less"
 const ItemsCart = () => {
 	const { cartState, ItemsCartDispatch } = useContext(ItemsCartContext);
 
@@ -31,36 +30,38 @@ const ItemsCart = () => {
 	const buildOptions = (quantity) => {
 		var options = [];
 		for (let i = 0; i <= quantity; i++) {
-			options.push(<option key={i} value={i}>{i}</option>)
+			options.push(<option key={i} value={i}>Qty: {i}</option>)
 		}
 		return options;
 	}
+
 	const calculateSubTotal = () => {
 
 	}
 
 	return (
-		<div className="row">
+		<div>
 			{
 				cartState.map(cartItem =>
-					<div key={cartItem.item.id} className="col-md-6">
-						<InventoryItemCard item={cartItem.item} />
+					<div key={cartItem.item.id} className="row h-100 pt-4 justify-content-center align-items-center">
+						<div className="vertcial-divider"></div>
 						<div className="col-md-6">
-							Quantity: 
-							<select id="cars" value={cartItem.count}
-								onChange={(event) => {
-									removeFromCart(parseInt(event.target.value), cartItem.item)
-								}}>
+							<InventoryItemCard item={cartItem.item} />
+						</div>
+						<div className="col-md-6">
+							<select value={cartItem.count} onChange={(event) => {
+								removeFromCart(parseInt(event.target.value), cartItem.item)
+							}}>
 								{
 									buildOptions(cartItem.count)
 								}
 							</select>
 						</div>
+						<div className="vertial-divider"></div>
 					</div>
 				)}
 		</div>
 	);
 }
-
 
 export default ItemsCart;

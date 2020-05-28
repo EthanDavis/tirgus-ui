@@ -7,8 +7,6 @@ export const ItemsCartContext = createContext();
 const ItemsCartProvider = ({ children }) => {
 	const initalCartState = (localStorage.getItem('chart') !== null) ? JSON.parse(localStorage.getItem('chart')) : [];
 
-	console.log("cart state is", initalCartState)
-
 	const [cartState, ItemsCartDispatch] = useReducer(itemsCartReducer, initalCartState);
 
 	return (

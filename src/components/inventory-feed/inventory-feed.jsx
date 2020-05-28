@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from 'react';
 import { InventoryContext } from '../../context/inventory-context';
 import InventoryItemCard from "../inventory-item-card/inventory-item-card";
 import httpService from "../../services/http-service";
-import "./inventory-feed.less";
 import Loading from '../loading/loading';
 import { PropTypes } from 'prop-types';
 
