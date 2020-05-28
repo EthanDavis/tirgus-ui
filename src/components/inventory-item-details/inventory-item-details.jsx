@@ -53,10 +53,10 @@ const InventoryItemDetails = ({ match }) => {
 	return (
 		<div className="container-fluid">
 			<div className="row">
-				<div className="col-md-6">
+				<div className="col-md-4">
 					<img className="img-responsive" src={item.image} alt="image cap" />
 				</div>
-				<div className="col-md-6 justify-content-center text-center item-details">
+				<div className="col-md-8 justify-content-center text-center item-details">
 					<div className="item-details-name">
 						<h2>{item.name}</h2>
 					</div>
