@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import InventoryItemCard from '../inventory-item-card/inventory-item-card';
 import { ItemsCartContext } from '../../context/items-cart-context';
 import "./items-cart.less"
+import Select from '../select/select';
 const ItemsCart = () => {
 	const { cartState, ItemsCartDispatch } = useContext(ItemsCartContext);
 
@@ -27,17 +28,6 @@ const ItemsCart = () => {
 		ItemsCartDispatch({ type: "DELETE_FROM_CART", payload: cartStateCopy })
 	}
 
-	const buildOptions = (quantity) => {
-		var options = [];
-		for (let i = 0; i <= quantity; i++) {
-			options.push(<option key={i} value={i}>Qty: {i}</option>)
-		}
-		return options;
-	}
-
-	const calculateSubTotal = () => {
-
-	}
 
 	return (
 		<div>
@@ -49,13 +39,11 @@ const ItemsCart = () => {
 							<InventoryItemCard item={cartItem.item} />
 						</div>
 						<div className="col-md-6">
-							<select value={cartItem.count} onChange={(event) => {
-								removeFromCart(parseInt(event.target.value), cartItem.item)
-							}}>
-								{
-									buildOptions(cartItem.count)
-								}
-							</select>
+							<Select value={cartItem.count}
+								selectableValues={[...Array((cartItem.item.quantity + 1)).keys()]} optionsText="Qty:" onChange={(event) => {
+									removeFromCart(parseInt(event.target.value), cartItem.item)
+								}}>
+							</Select>
 						</div>
 						<div className="vertial-divider"></div>
 					</div>

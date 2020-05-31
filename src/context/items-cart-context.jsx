@@ -5,7 +5,7 @@ import { itemsCartReducer } from '../components/items-cart/items-cart.reducer';
 export const ItemsCartContext = createContext();
 
 const ItemsCartProvider = ({ children }) => {
-	const initalCartState = (localStorage.getItem('chart') !== null) ? JSON.parse(localStorage.getItem('chart')) : [];
+	const initalCartState = (localStorage.getItem('cart') !== null) ? JSON.parse(localStorage.getItem('cart')) : [];
 
 	const [cartState, ItemsCartDispatch] = useReducer(itemsCartReducer, initalCartState);
 
